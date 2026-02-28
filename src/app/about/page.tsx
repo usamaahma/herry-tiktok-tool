@@ -19,7 +19,7 @@ export default function AboutPage() {
             Empowering <span className="text-blue-600">Creators</span> Globally
           </h1>
           <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-medium">
-            Jerry TikTok Tool was founded in 2024 to bridge the gap between complex social media policies and the creators who drive the platforms. We simplify recovery and compliance.
+            Herry TikTok Tool was founded in 2024 to bridge the gap between complex social media policies and the creators who drive the platforms. We simplify recovery and compliance.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
         {/* Section 3: The Story */}
         <div className="bg-blue-600 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-black mb-6">The Jerry TikTok Tool Story</h2>
+            <h2 className="text-3xl md:text-4xl font-black mb-6">The Herry TikTok Tool Story</h2>
             <div className="space-y-6 text-blue-100 text-lg font-medium leading-relaxed">
               <p>
                 It all started when our founder lost access to a growing account due to a misunderstanding of the platform community guidelines. We realized there was no easy way for creators to understand compliance without hiring expensive agencies.

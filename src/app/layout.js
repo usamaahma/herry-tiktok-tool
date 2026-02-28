@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Jerry TikTok Tool | Digital Identity Protection",
+  title: "Herry TikTok Tool | Digital Identity Protection",
   description: "Professional compliance support and account recovery for TikTok creators.",
 };
 

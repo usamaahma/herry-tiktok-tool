@@ -13,7 +13,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black leading-none tracking-tight text-gray-900 uppercase">
-                Jerry <span className="text-blue-600">TikTok</span>
+                Herry <span className="text-blue-600">TikTok</span>
               </span>
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Compliance Tool</span>
             </div>

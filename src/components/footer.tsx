@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo Section */}
         <div className="flex items-center justify-center space-x-2 mb-8 uppercase font-black tracking-widest text-xl">
            <Smartphone className="w-8 h-8 text-blue-500" />
-           <span>Jerry <span className="text-blue-500">TikTok</span> Tool</span>
+           <span>Herry <span className="text-blue-500">TikTok</span> Tool</span>
         </div>
 
         {/* Navigation Links */}
@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Disclaimer - AdSense loves this for niche tools */}
         <div className="max-w-3xl mx-auto mb-10 p-6 bg-white/5 rounded-3xl border border-white/10">
           <p className="text-[10px] text-gray-500 leading-relaxed uppercase tracking-wider">
-            Disclaimer: Jerry TikTok Tool is an independent compliance resource. We are not affiliated with, 
+            Disclaimer: Herry TikTok Tool is an independent compliance resource. We are not affiliated with, 
             endorsed by, or connected to TikTok or ByteDance. All product names and logos are 
             trademarks of their respective owners.
           </p>
@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="pt-8 border-t border-gray-800">
           <p className="text-[10px] text-gray-600 tracking-[0.3em] font-medium">
-            © 2026 OFFICIAL JERRY TIKTOK TOOL. ALL RIGHTS RESERVED.
+            © 2026 OFFICIAL HERRY TIKTOK TOOL. ALL RIGHTS RESERVED.
           </p>
         </div>
       </div>

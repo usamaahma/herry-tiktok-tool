@@ -16,7 +16,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
             <p>
-              By accessing and using <strong>Jerry TikTok Tool</strong>, you accept and agree to be bound by the terms and provision of this agreement.
+              By accessing and using <strong>Herry TikTok Tool</strong>, you accept and agree to be bound by the terms and provision of this agreement.
             </p>
           </section>
 
@@ -30,27 +30,27 @@ export default function TermsPage() {
           <section className="bg-yellow-50 p-6 rounded-2xl border-l-4 border-yellow-500 text-yellow-900">
             <h2 className="text-xl font-bold mb-2">3. Disclaimer (No Guarantee)</h2>
             <p className="text-sm">
-              While we provide expert strategies and compliance templates, <strong>Jerry TikTok Tool does not guarantee</strong> the successful recovery of any banned or restricted account. The final decision always rests with the platform's official support team.
+              While we provide expert strategies and compliance templates, <strong>Herry TikTok Tool does not guarantee</strong> the successful recovery of any banned or restricted account. The final decision always rests with the platform's official support team.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Intellectual Property</h2>
             <p>
-              The "Jerry TikTok Tool" name, logo, and recovery modules are protected by copyright. Any unauthorized reproduction or distribution is strictly prohibited.
+              The Herry TikTok Tool name, logo, and recovery modules are protected by copyright. Any unauthorized reproduction or distribution is strictly prohibited.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Limitation of Liability</h2>
             <p>
-              In no event shall Jerry TikTok Tool be liable for any damages arising out of the use or inability to use the materials on our website.
+              In no event shall Herry TikTok Tool be liable for any damages arising out of the use or inability to use the materials on our website.
             </p>
           </section>
 
           <section className="pt-8 border-t border-gray-100 text-center">
             <p className="text-gray-400 text-sm italic">
-              Questions about our terms? Contact us at <strong>support@jerrytiktoktool.com</strong>
+              Questions about our terms? Contact us at <strong>support@herrytiktoktool.com</strong>
             </p>
           </section>
         </div>

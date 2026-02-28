@@ -12,7 +12,7 @@ export default function BlogList() {
             Resources & Guides
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2">
-            Jerry TikTok Tool <span className="text-blue-600">Insights</span>
+            Herry TikTok Tool <span className="text-blue-600">Insights</span>
           </h1>
           <p className="text-xl text-gray-600 mt-4 max-w-2xl">
             Latest updates on digital compliance, account security, and platform

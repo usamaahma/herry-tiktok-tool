@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
             <p>
-              Welcome to <strong>Jerry TikTok Tool</strong>. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website.
+              Welcome to <strong>Herry TikTok Tool</strong>. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website.
             </p>
           </section>
 
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Disclaimer</h2>
             <p className="italic">
-              Jerry TikTok Tool is an independent compliance assistant. We are <strong>not affiliated, associated, authorized, endorsed by, or in any way officially connected with TikTok, ByteDance</strong>, or any of its subsidiaries.
+              Herry TikTok Tool is an independent compliance assistant. We are <strong>not affiliated, associated, authorized, endorsed by, or in any way officially connected with TikTok, ByteDance</strong>, or any of its subsidiaries.
             </p>
           </section>
 
@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Contact Us</h2>
             <p>
               If you have any questions about this privacy policy, please contact us at: 
-              <span className="text-blue-600 ml-2 font-bold">support@jerrytiktoktool.com</span>
+              <span className="text-blue-600 ml-2 font-bold">support@herrytiktoktool.com</span>
             </p>
           </section>
         </div>

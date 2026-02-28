@@ -16,7 +16,7 @@ export default function IssueDetail({ params }: { params: Promise<{ slug: string
       <div className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-2xl font-bold text-red-500">Issue Not Found</h1>
         <p className="text-gray-500">Requested Slug: <span className="font-bold text-black">{slug}</span></p>
-        <Link href="/" className="text-blue-600 underline mt-4 font-bold">← Back to Jerry TikTok Tool</Link>
+        <Link href="/" className="text-blue-600 underline mt-4 font-bold">← Back to Herry TikTok Tool</Link>
       </div>
     );
   }

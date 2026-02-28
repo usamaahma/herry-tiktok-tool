@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://jerrytiktoktool.com/sitemap.xml', // Apni domain yahan likhein
+    sitemap: 'https://herrytiktoktool.com/sitemap.xml', // Apni domain yahan likhein
   }
 }

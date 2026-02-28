@@ -91,7 +91,7 @@ export default function Home() {
       a: "Eligibility often fails due to region or tax info errors. We provide a compliance checklist to sync your data correctly.",
     },
     {
-      q: "Is my data safe with Jerry TikTok Tool?",
+      q: "Is my data safe with Herry TikTok Tool?",
       a: "Absolutely. We use end-to-end encryption and never ask for your passwords or direct login access.",
     },
   ];
@@ -109,7 +109,7 @@ export default function Home() {
             Digital Identity <span className="text-blue-600">Protection</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium italic">
-            Official Jerry TikTok Tool - Secure and recover your digital
+            Official Herry TikTok Tool - Secure and recover your digital
             assets.
           </p>
           <Link

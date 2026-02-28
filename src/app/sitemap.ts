@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { blogs } from '../data/blogs'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://jerrytiktoktool.com' // Yahan apni asli domain likhein
+  const baseUrl = 'https://herrytiktoktool.com' // Yahan apni asli domain likhein
 
   // Blog posts ke links generate karein
   const blogUrls = blogs.map((post) => ({

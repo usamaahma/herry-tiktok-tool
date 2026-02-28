@@ -112,7 +112,7 @@ export default function BlogDetail({ params }: { params: Promise<{ slug: string 
                 JT
               </div>
               <div className="ml-4">
-                <h4 className="font-bold text-gray-900">Jerry TikTok Team</h4>
+                <h4 className="font-bold text-gray-900">Herry TikTok Team</h4>
                 <p className="text-xs text-gray-400">Compliance Experts</p>
               </div>
             </div>
