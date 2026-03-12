@@ -109,14 +109,13 @@ export default function Home() {
             Digital Identity <span className="text-blue-600">Protection</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium italic">
-            Official Herry TikTok Tool - Secure and recover your digital
-            assets.
+            Official Herry TikTok Tool - Secure and recover your digital assets.
           </p>
           <Link
             href="#solutions"
             className="bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-700 shadow-xl inline-flex items-center"
           >
-            Start Your Recovery <ArrowRight className="ml-2 w-5 h-5" />
+            Our Services <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
             {stats.map((s, i) => (
@@ -164,28 +163,52 @@ export default function Home() {
       </section>
 
       {/* 3. SOLUTIONS SECTION */}
-      <section id="solutions" className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-black mb-12">Recovery Modules</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {issues.map((issue) => (
-              <Link
-                href={`/issue/${issue.slug}`}
-                key={issue.id}
-                className="bg-white p-8 rounded-[2rem] hover:border-blue-500 border border-transparent transition-all shadow-sm"
-              >
-                <ShieldCheck className="w-8 h-8 text-blue-600 mb-6" />
-                <h3 className="text-2xl font-bold mb-3">{issue.title}</h3>
-                <p className="text-gray-500 text-sm mb-6">{issue.shortDesc}</p>
-                <div className="text-blue-600 font-bold text-xs uppercase flex items-center">
-                  Initialize <ChevronRight className="ml-1 w-4 h-4" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+     <section id="solutions" className="py-20 bg-white">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="mb-10 text-center">
+      <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">
+        Recovery Modules
+      </h2>
+      <p className="text-gray-500 text-sm">
+        Select a specialized module to begin.
+      </p>
+    </div>
 
+    {/* gap-6 aur max-w-5xl se cards choty aur kareeb ho jayengy */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {issues.map((issue) => (
+        <Link
+          href={`/issue/${issue.slug}`}
+          key={issue.id}
+          className="group relative bg-blue-50 p-5 rounded-[1.5rem] border border-blue-100 hover:border-blue-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+        >
+          <div className="relative flex flex-col items-center text-center">
+            {/* Chota Icon Box */}
+            <div className="w-10 h-10 bg-white text-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-sm border border-blue-50">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+
+            {/* Choti Heading */}
+            <h3 className="text-lg font-bold mb-2 text-gray-900">
+              {issue.title}
+            </h3>
+
+            {/* Limited text taake card bara na ho */}
+            <p className="text-gray-500 text-[13px] leading-snug mb-5 line-clamp-2">
+              {issue.shortDesc}
+            </p>
+
+            {/* Compact Button */}
+            <div className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-bold text-[11px] uppercase tracking-wider group-hover:bg-blue-700 transition-colors shadow-md flex items-center justify-center">
+              Click Here
+              <ChevronRight className="ml-1 w-3 h-3" />
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
       {/* 4. FAQ SECTION */}
       <section className="py-24 bg-white" id="faqs">
         <div className="max-w-3xl mx-auto px-4">
