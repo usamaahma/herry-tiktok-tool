@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "herry-tiktok-tool",
+    "name": "Herry Tiktok Tool",
     "slug": "herry-tiktok-tool",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,9 +8,11 @@
     "scheme": "herrytiktoktool",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.herry.tiktoktool"
     },
     "android": {
+      "package": "com.herry.tiktoktool",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
