@@ -1,28 +1,25 @@
-import { Tabs } from "expo-router";
-import React from "react";
-import { View } from "react-native";
+import { Stack } from "expo-router";
 
-export default function TabLayout() {
+export default function RootLayout() {
   return (
-    // Is master layout se hum default bars ko mukammal disable kar rahe hain
-    <Tabs
+    <Stack
       screenOptions={{
-        headerShown: false, // Is se top ka white "Tab One" gayab ho jayega
-        tabBarStyle: { display: "none" }, // Is se bottom ka bura default "Tab Two" bar gayab ho jayega
+        headerShown: false,
+        animation: "slide_from_right",
+        contentStyle: { backgroundColor: "#050507" },
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-        }}
+      <Stack.Screen name="(tabs)" options={{ animation: "fade" }} />
+      <Stack.Screen
+        name="tool/[id]"
+        options={{ animation: "slide_from_bottom" }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: "Explore",
-        }}
+
+      {/* Naya Page Register Kiya */}
+      <Stack.Screen
+        name="more-services"
+        options={{ animation: "slide_from_right" }}
       />
-    </Tabs>
+    </Stack>
   );
 }
