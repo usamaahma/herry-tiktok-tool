@@ -13,7 +13,7 @@ import {
   Platform,
   BackHandler,
 } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { Link, useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons, Feather } from "@expo/vector-icons";
 
 const THEME = {
@@ -290,8 +290,12 @@ const SERVICE_POLICIES: Record<
 };
 
 export default function ToolExecutionScreen() {
+  const { id, title, isPremium } = useLocalSearchParams<{
+    id: string;
+    title: string;
+    isPremium?: string;
+  }>();
   const router = useRouter();
-  const { id, title } = useLocalSearchParams<{ id: string; title: string }>();
 
   const [phase, setPhase] = useState<
     "guidelines" | "processing" | "success" | "calculated-fun"
@@ -323,9 +327,20 @@ export default function ToolExecutionScreen() {
     );
   }, [id]);
 
+  // useEffect(() => {
+  //   const backAction = () => {
+  //     router.replace("/");
+  //     return true;
+  //   };
+  //   const backHandler = BackHandler.addEventListener(
+  //     "hardwareBackPress",
+  //     backAction,
+  //   );
+  //   return () => backHandler.remove();
+  // }, [phase]);
   useEffect(() => {
     const backAction = () => {
-      router.replace("/");
+      router.push("/"); // Replace ke bajaye push use karein agar blank screen aa rahi hai
       return true;
     };
     const backHandler = BackHandler.addEventListener(
@@ -333,7 +348,7 @@ export default function ToolExecutionScreen() {
       backAction,
     );
     return () => backHandler.remove();
-  }, [phase]);
+  }, []);
 
   // 2️⃣ Countdown ticker management for Submit Button Action
   useEffect(() => {
@@ -353,7 +368,11 @@ export default function ToolExecutionScreen() {
 
   // 3️⃣ AD TRIGGER B: Runs only when user fills out the form and presses submit
   const handleSystemSubmit = () => {
-    // Form Input Validation Rules
+    if (isPremium === "true") {
+      // Here you can trigger your payment gateway or a "Upgrade to Premium" modal
+      alert("This is a Premium Module. Please upgrade to access.");
+      return;
+    }
     if (id === "love-calculator") {
       if (!username.trim() || !partnerName.trim())
         return alert("Please enter both Your Name and Partner's Name!");
@@ -447,15 +466,17 @@ export default function ToolExecutionScreen() {
       <View style={styles.headerBar}>
         <TouchableOpacity
           style={styles.circleBtn}
-          onPress={() => router.replace("/")}
+          onPress={() =>
+            router.canGoBack() ? router.back() : router.push("/")
+          } // Back logic
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" size={20} color={THEME.colors.white} />
         </TouchableOpacity>
-        <Text style={styles.headerTitleText}>SECURE TERMINAL</Text>
+
         <TouchableOpacity
           style={styles.circleBtn}
-          onPress={() => router.replace("/")}
+          onPress={() => router.push("/")} // Home logic (Directly root)
           activeOpacity={0.7}
         >
           <Ionicons name="home-outline" size={18} color={THEME.colors.white} />
@@ -689,23 +710,24 @@ export default function ToolExecutionScreen() {
               ))}
             </View>
 
-            <TouchableOpacity
-              style={[
-                styles.primaryBtn,
-                { marginTop: 30, borderColor: THEME.colors.crimson },
-              ]}
-              activeOpacity={0.8}
-              onPress={() => router.replace("/")}
-            >
-              <Text style={[styles.btnText, { color: THEME.colors.crimson }]}>
-                RETURN TO CONSOLE
-              </Text>
-              <Feather
-                name="arrow-left"
-                size={16}
-                color={THEME.colors.crimson}
-              />
-            </TouchableOpacity>
+            <Link href="/(tabs)" asChild>
+              <TouchableOpacity
+                style={[
+                  styles.primaryBtn,
+                  { marginTop: 30, borderColor: THEME.colors.crimson },
+                ]}
+                activeOpacity={0.8}
+              >
+                <Text style={[styles.btnText, { color: THEME.colors.crimson }]}>
+                  RETURN TO CONSOLE
+                </Text>
+                <Feather
+                  name="arrow-left"
+                  size={16}
+                  color={THEME.colors.crimson}
+                />
+              </TouchableOpacity>
+            </Link>
           </View>
         )}
 
@@ -778,23 +800,24 @@ export default function ToolExecutionScreen() {
               </View>
             )}
 
-            <TouchableOpacity
-              style={[
-                styles.primaryBtn,
-                { marginTop: 30, borderColor: THEME.colors.success },
-              ]}
-              activeOpacity={0.8}
-              onPress={() => router.replace("/")}
-            >
-              <Text style={[styles.btnText, { color: THEME.colors.success }]}>
-                RETURN TO MAIN CONSOLE
-              </Text>
-              <Feather
-                name="arrow-left"
-                size={16}
-                color={THEME.colors.success}
-              />
-            </TouchableOpacity>
+            <Link href="/(tabs)" asChild>
+              <TouchableOpacity
+                style={[
+                  styles.primaryBtn,
+                  { marginTop: 30, borderColor: THEME.colors.success },
+                ]}
+                activeOpacity={0.8}
+              >
+                <Text style={[styles.btnText, { color: THEME.colors.success }]}>
+                  RETURN TO MAIN CONSOLE
+                </Text>
+                <Feather
+                  name="arrow-left"
+                  size={16}
+                  color={THEME.colors.success}
+                />
+              </TouchableOpacity>
+            </Link>
           </View>
         )}
       </ScrollView>

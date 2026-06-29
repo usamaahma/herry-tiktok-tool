@@ -8,29 +8,38 @@ import {
   StatusBar,
   BackHandler,
 } from "react-native";
-import { useRouter } from "expo-router";
-import { Ionicons, Feather } from "@expo/vector-icons";
+import { Link, useRouter } from "expo-router";
+import { Feather, Ionicons } from "@expo/vector-icons";
+
+const PREMIUM_FEATURES = [
+  { id: "go-live", title: "How To Live on TikTok", icon: "tv" },
+  { id: "create-uk-account", title: "How To Make UK Account", icon: "globe" },
+  {
+    id: "account-unbanned",
+    title: "Special Appeal For TikTok Unban",
+    icon: "shield",
+  },
+];
 
 const THEME = {
   colors: {
     bg: "#050507",
     card: "#111115",
     border: "#1C1C22",
-    crimson: "#FE2C55",
     yellow: "#FFCC00",
     white: "#FFFFFF",
     muted: "#62626E",
   },
 };
 
-export default function TabTwoScreen() {
+export default function PremiumScreen() {
   const router = useRouter();
 
-  // Hardware Back Button Control (Agar user phone ka back button dabaye)
   useEffect(() => {
     const backAction = () => {
-      router.replace("/"); // Straight home page par bhejo
-      return true; // Prevent default behavior (blank screen)
+      // Forceful navigation to home, clear history to avoid blank screens
+      router.replace("/(tabs)");
+      return true; // Prevents app exit
     };
 
     const backHandler = BackHandler.addEventListener(
@@ -48,45 +57,38 @@ export default function TabTwoScreen() {
         backgroundColor="transparent"
       />
 
-      {/* FLOATING TOP BAR */}
-      <View style={styles.floatingTopBar}>
-        <TouchableOpacity
-          style={styles.floatingCircleBtn}
-          activeOpacity={0.7}
-          onPress={() => router.replace("/")}
-        >
-          <Ionicons name="chevron-back" size={20} color={THEME.colors.white} />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.floatingCircleBtn}
-          activeOpacity={0.7}
-          onPress={() => router.replace("/")}
-        >
-          <Ionicons name="home-outline" size={18} color={THEME.colors.white} />
-        </TouchableOpacity>
+      <View style={styles.header}>
+        <Text style={styles.title}>PREMIUM ACCESS</Text>
+        <Text style={styles.subtitle}>Unlock expert-level protocols</Text>
       </View>
 
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.header}>
-          <Text style={styles.mainTitle}>PREMIUM SYSTEM</Text>
-          <Text style={styles.subtitle}>
-            Unlock advanced high-authority social tools.
-          </Text>
-        </View>
-
-        {/* Aapka Premium Content Yahan Aayega */}
-        <View style={styles.lockCard}>
-          <Feather name="lock" size={40} color={THEME.colors.yellow} />
-          <Text style={styles.lockText}>VIP Modules Are Locked</Text>
-        </View>
+      <ScrollView contentContainerStyle={styles.list}>
+        {PREMIUM_FEATURES.map((feat) => (
+          <TouchableOpacity
+            key={feat.id}
+            style={styles.card}
+            activeOpacity={0.7}
+            onPress={() =>
+              router.push({
+                pathname: "/tool/[id]",
+                params: { id: feat.id, title: feat.title, isPremium: "true" },
+              })
+            }
+          >
+            <View style={styles.iconBox}>
+              <Feather
+                name={feat.icon as any}
+                size={24}
+                color={THEME.colors.yellow}
+              />
+            </View>
+            <Text style={styles.cardText}>{feat.title}</Text>
+            <Feather name="lock" size={16} color={THEME.colors.muted} />
+          </TouchableOpacity>
+        ))}
       </ScrollView>
 
-      {/* CUSTOM BOTTOM TAB BAR */}
+      {/* CUSTOM BOTTOM BAR */}
       <View style={styles.bottomTabBar}>
         <TouchableOpacity
           style={styles.tabItem}
@@ -95,24 +97,22 @@ export default function TabTwoScreen() {
         >
           <Feather name="activity" size={20} color={THEME.colors.muted} />
           <Text style={[styles.tabText, { color: THEME.colors.muted }]}>
-            Server Logs
+            Logs
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.centerTabItem}
-          onPress={() => router.replace("/")}
-          activeOpacity={0.8}
-        >
-          <View
-            style={[
-              styles.homeIconGlow,
-              { backgroundColor: THEME.colors.card },
-            ]}
-          >
-            <Ionicons name="home" size={22} color={THEME.colors.white} />
-          </View>
-        </TouchableOpacity>
+        <Link href="/(tabs)" asChild>
+          <TouchableOpacity style={styles.centerTabItem} activeOpacity={0.8}>
+            <View
+              style={[
+                styles.homeIconGlow,
+                { backgroundColor: THEME.colors.card },
+              ]}
+            >
+              <Ionicons name="home" size={22} color={THEME.colors.white} />
+            </View>
+          </TouchableOpacity>
+        </Link>
 
         <TouchableOpacity
           style={styles.tabItem}
@@ -131,57 +131,30 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: THEME.colors.bg },
-  container: { flex: 1 },
-  contentContainer: { padding: 20, paddingTop: 120, paddingBottom: 160 },
-  floatingTopBar: {
-    position: "absolute",
-    top: 50,
-    left: 20,
-    right: 20,
-    height: 50,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    zIndex: 999,
-  },
-  floatingCircleBtn: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.15)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  header: { alignItems: "center", marginBottom: 30 },
-  mainTitle: {
-    color: THEME.colors.yellow,
-    fontSize: 24,
-    fontWeight: "900",
-    letterSpacing: 1,
-  },
-  subtitle: {
-    color: THEME.colors.muted,
-    marginTop: 5,
-    fontSize: 13,
-    textAlign: "center",
-  },
-  lockCard: {
+  header: { padding: 20, paddingTop: 80, marginBottom: 10 },
+  title: { color: THEME.colors.yellow, fontSize: 28, fontWeight: "900" },
+  subtitle: { color: THEME.colors.muted, fontSize: 14 },
+  list: { padding: 20 },
+  card: {
     backgroundColor: THEME.colors.card,
+    padding: 20,
+    borderRadius: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 15,
     borderWidth: 1,
     borderColor: THEME.colors.border,
-    borderRadius: 16,
-    padding: 40,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 15,
-    marginTop: 20,
   },
-  lockText: { color: THEME.colors.white, fontSize: 16, fontWeight: "700" },
+  iconBox: { marginRight: 20 },
+  cardText: {
+    color: THEME.colors.white,
+    fontSize: 16,
+    fontWeight: "600",
+    flex: 1,
+  },
   bottomTabBar: {
     position: "absolute",
-    bottom: 70,
+    bottom: 0,
     left: 0,
     right: 0,
     height: 74,
@@ -193,10 +166,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingBottom: 10,
-    zIndex: 10,
   },
   tabItem: { alignItems: "center", justifyContent: "center", width: 70 },
-  tabText: { fontSize: 9, fontWeight: "700", marginTop: 4, letterSpacing: 0.3 },
+  tabText: { fontSize: 9, fontWeight: "700", marginTop: 4 },
   centerTabItem: { top: -12, justifyContent: "center", alignItems: "center" },
   homeIconGlow: {
     width: 54,

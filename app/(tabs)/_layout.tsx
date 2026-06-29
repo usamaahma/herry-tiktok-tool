@@ -1,22 +1,17 @@
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
 import React from "react";
 
 export default function TabLayout() {
   return (
-    <Tabs
+    <Stack
       screenOptions={{
-        headerShown: false, // Top header hidden
-        tabBarStyle: { display: "none" }, // Bottom default bar hidden (Kyunki custom use kar rahe hain)
+        headerShown: false, // Dono jagah se header hata diya
+        animation: "none", // Blinking se bachne ke liye
       }}
     >
-      {/* 1. Main Homepage */}
-      <Tabs.Screen name="index" options={{ title: "Home" }} />
-
-      {/* 2. Server Logs Screen (Yeh missing thi, jis se back blank ho raha tha) */}
-      <Tabs.Screen name="logs" options={{ title: "Server Logs" }} />
-
-      {/* 3. Premium Screen */}
-      <Tabs.Screen name="two" options={{ title: "Premium" }} />
-    </Tabs>
+      <Stack.Screen name="index" />
+      <Stack.Screen name="logs" />
+      <Stack.Screen name="two" />
+    </Stack>
   );
 }

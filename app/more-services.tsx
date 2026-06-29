@@ -8,7 +8,7 @@ import {
   StatusBar,
   BackHandler,
 } from "react-native";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { Ionicons, Feather } from "@expo/vector-icons";
 
 const THEME = {
@@ -27,7 +27,11 @@ const THEME = {
 const ALL_SERVICES = [
   { id: "viral-video", title: "Viral Video Protocol", icon: "trending-up" },
   { id: "account-unbanned", title: "Unban Request", icon: "shield" },
-  { id: "love-calculator", title: "Love Compatibility Analysis", icon: "heart" },
+  {
+    id: "love-calculator",
+    title: "Love Compatibility Analysis",
+    icon: "heart",
+  },
   { id: "find-partner", title: "Partner Matrix Finder", icon: "search" },
   { id: "ban-warning", title: "Remove Warning", icon: "alert-triangle" },
   { id: "not-recommended", title: "Fix FYP Feed", icon: "eye" },
@@ -71,21 +75,29 @@ export default function MoreServicesScreen() {
 
       {/* FIXED TOP HEADER */}
       <View style={styles.headerBar}>
-        <TouchableOpacity
-          style={styles.circleBtn}
-          onPress={() => router.replace("/")}
-          activeOpacity={0.7}
-        >
-          <Ionicons name="chevron-back" size={20} color={THEME.colors.white} />
-        </TouchableOpacity>
+        {/* BACK BUTTON */}
+        <Link href="/(tabs)" asChild>
+          <TouchableOpacity style={styles.circleBtn} activeOpacity={0.7}>
+            <Ionicons
+              name="chevron-back"
+              size={20}
+              color={THEME.colors.white}
+            />
+          </TouchableOpacity>
+        </Link>
+
         <Text style={styles.headerTitleText}>ALL TERMINAL SERVICES</Text>
-        <TouchableOpacity
-          style={styles.circleBtn}
-          onPress={() => router.replace("/")}
-          activeOpacity={0.7}
-        >
-          <Ionicons name="home-outline" size={18} color={THEME.colors.white} />
-        </TouchableOpacity>
+
+        {/* HOME BUTTON */}
+        <Link href="/(tabs)" asChild>
+          <TouchableOpacity style={styles.circleBtn} activeOpacity={0.7}>
+            <Ionicons
+              name="home-outline"
+              size={18}
+              color={THEME.colors.white}
+            />
+          </TouchableOpacity>
+        </Link>
       </View>
 
       {/* SERVICES GRID */}
